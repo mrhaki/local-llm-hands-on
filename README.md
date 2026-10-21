@@ -10,7 +10,6 @@ Pas `src/main/resources/application.properties` aan:
 ```properties
 openai.responses-url=http://127.0.0.1:1234/v1/responses
 openai.model=local-model
-openai.api-key=${OPENAI_API_KEY:}
 ```
 
 Vervang `local-model` door de model-ID van je geladen LM Studio-model.
@@ -35,6 +34,8 @@ curl http://127.0.0.1:8080/hello
 
 De MCP-server is bereikbaar op `http://127.0.0.1:8080/mcp` via Streamable HTTP.
 Verbind een MCP-client met deze URL en roep de tool `echo` aan met `{"input":"Hallo"}`. 
+Gebruik hiervoor de "chat" in LM Studio. 
+Zorg ervoor dat `mcp/testmcp` actief is via Integrations van de chat.
 Het tekstresultaat is `MCP Uitgevoerd: Hallo`.
 Deze tool heeft geen LM Studio-verbinding nodig.
 

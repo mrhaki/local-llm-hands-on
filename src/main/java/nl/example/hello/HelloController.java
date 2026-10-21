@@ -22,17 +22,13 @@ public class HelloController {
 
   public HelloController(
       @Value("${openai.responses-url}") String responsesUrl,
-      @Value("${openai.model}") String model,
-      @Value("${openai.api-key:}") String apiKey) {
+      @Value("${openai.model}") String model) {
     this.responsesUrl = responsesUrl;
     this.model = model;
     var requestFactory = new JdkClientHttpRequestFactory(HttpClient.newBuilder()
         .connectTimeout(Duration.ofSeconds(5)).build());
     requestFactory.setReadTimeout(Duration.ofSeconds(120));
     var builder = RestClient.builder().requestFactory(requestFactory);
-    if (!apiKey.isBlank()) {
-      builder.defaultHeaders(headers -> headers.setBearerAuth(apiKey));
-    }
     this.client = builder.build();
   }
 
