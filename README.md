@@ -10,7 +10,6 @@ Pas `src/main/resources/application.properties` aan:
 ```properties
 openai.responses-url=http://127.0.0.1:1234/v1/responses
 openai.model=local-model
-openai.api-key=${OPENAI_API_KEY:}
 ```
 
 Vervang `local-model` door de model-ID van je geladen LM Studio-model.
